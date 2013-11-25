@@ -1,0 +1,17 @@
+{
+  "name": "saltybit",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "request": "~2.27.0",
+    "socket.io-client": "~0.9.16"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/euank/saltybit.git"
+  },
+  "author": "EuanK",
+  "license": "MIT"
+}
