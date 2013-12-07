@@ -2,6 +2,7 @@ var io = require('socket.io-client');
 var http = require('http');
 var request = require('request');
 var config = require("./config");
+var http = require("http");
 
 var sock = io.connect("http://www-cdn-twitch.saltybet.com:8000");
 
@@ -28,7 +29,13 @@ function setBaseAmount() {
 }
 
 function getAmount() {
-  if(mySaltyBucks < baseLine) return 1;
+  /* It is only probablistically favourable to bet 1 at complete random
+     Betting a larger amount without pre-knowledge ensures you lose to all
+     the other people who do have pre-knowledge. More investigation will have to be done
+   */
+  return 1;
+  /* The below is a 'safe' amount to bet if you're somewhat sure of the outcome. */
+  if(mySaltyBucks <= baseLine) return 1;
   return Math.floor(Math.sqrt(mySaltyBucks - baseline));
 }
 
@@ -62,4 +69,11 @@ function updateState() {
       }
     }
   });
+}
+
+if(config.serveApi) {
+  http.createServer(function(req,res) {
+    res.write(JSON.stringify({salt: mySaltyBucks}));
+    res.end();
+  }).listen(config.apiPort);;
 }

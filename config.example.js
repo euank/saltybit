@@ -1,6 +1,8 @@
 module.exports = {
   email: "email@example.com",
   password: "pass",
-  name: "username"
+  name: "username",
+  serveApi: true,
+  apiPort: 3004
 }
 
