@@ -40,7 +40,6 @@ function getAmount() {
 }
 
 function placeBet() {
-  if(mySaltyBucks === null) return;
   var toBet = "player" + (Math.round(Math.random())+1);
   var amount = getAmount();
   console.log("PLACING BET OF",amount,"ON", toBet);
@@ -50,6 +49,7 @@ function placeBet() {
 
 function updateState() {
   request("http://www.saltybet.com/state.json", function(e,r,body) {
+    console.log(body);
     var s = JSON.parse(body);
     if(s.status == "open") {
       placeBet();
