@@ -19,3 +19,8 @@ TODO
 Originally I was planning to also gather statistics over time to influence who
 to bet the 1 salty buck on, but since I learned bots to be against the rules
 it's quite possible that plan will not be realized.
+
+LICENSE
+-------
+
+MIT
